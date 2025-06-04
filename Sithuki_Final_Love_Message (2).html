@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To Sithuki 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffc0cb, #ffe6f0);
+      font-family: 'Segoe UI', sans-serif;
+      color: #3c003c;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0; left: 0;
+      pointer-events: none;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d6d;
+      transform: rotate(45deg);
+      animation: float 6s ease-in infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4d6d;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 1; }
+    }
+    .message {
+      z-index: 1;
+      position: relative;
+      margin-top: 10vh;
+      padding: 20px;
+      display: none;
+    }
+    .start-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px 30px;
+      font-size: 18px;
+      background: white;
+      color: #d6336c;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="message" id="message">
+    <p>Hey, Sithuki...</p>
+    <p>I’ve been thinking about what happened. About what I did.</p>
+    <p>And I need you to know this — I’m genuinely sorry.</p>
+    <p>I didn’t just make a mistake... I hurt you.</p>
+    <p>Someone who’s been there for me, loved me, supported me.</p>
+    <p>You didn’t deserve that, not even for a second.</p>
+    <p>And I hate knowing I’m the reason you felt that kind of pain.</p>
+    <p>This isn’t me trying to explain it away.</p>
+    <p>This is me saying — from my heart — that I’m very sorry.</p>
+    <p>It’s been 4 years, Sithuki.</p>
+    <p>Four years of memories, of growing together, of love that means everything to me.</p>
+    <p>You’re the only one I want. Always.</p>
+    <p>I still love you with everything I have.</p>
+    <p>I still want us — stronger, happier, better than before.</p>
+    <p>I’m not letting go of your hand.</p>
+    <p>Not now, not ever.</p>
+    <p>I’ll earn your trust back. I’ll show you I mean every word.</p>
+    <p>You’re the one I want, always.</p>
+    <p>And I’m ready to prove that, every single day.</p>
+    <p><strong>I'm gonna fix everything. I promise.</strong></p>
+  </div>
+  <button class="start-btn" onclick="startMessage()">Tap to Start</button>
+  <audio id="voice" src="sithuki_final_voice.m4a"></audio>
+  <script>
+    const hearts = document.getElementById("hearts");
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 5 + "s";
+      hearts.appendChild(heart);
+    }
+
+    function startMessage() {
+      document.querySelector(".start-btn").style.display = "none";
+      document.getElementById("message").style.display = "block";
+      document.getElementById("voice").play();
+    }
+  </script>
+</body>
+</html>
